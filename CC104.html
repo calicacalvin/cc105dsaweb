@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DSA Website – Group 1</title>
+
+    <link rel="stylesheet" href="tech_style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Data Structures & Algorithms Website</h1>
+        <p>GROUP #1 CC104 WEBSITE</p>
+    </header>
+
+    <nav>
+        <a href="#algorithms">Algorithms</a>
+        <a href="#pseudocode">Pseudocode</a>
+        <a href="#arrays">Arrays</a>
+        <a href="#stacks">Stacks</a>
+        <a href="#queues">Queues</a>
+        <a href="#trees">Trees</a>
+    </nav>
+
+    <div class="container">
+        <section id="algorithms">
+            <h2>Algorithms (10)</h2>
+
+            <div class="card"><h3>1. Linear Search</h3><pre>
+for i in range(n):
+    if arr[i] == target:
+        return i
+return -1
+            </pre></div>
+
+            <div class="card"><h3>2. Binary Search</h3><pre>
+while low <= high:
+    mid = (low + high) // 2
+    if arr[mid] == target:
+        return mid
+    elif arr[mid] < target:
+        low = mid + 1
+    else:
+        high = mid - 1
+return -1
+            </pre></div>
+
+            <div class="card"><h3>3. Bubble Sort</h3><pre>
+for i in range(n):
+    for j in range(0, n-i-1):
+        if arr[j] > arr[j+1]:
+            arr[j], arr[j+1] = arr[j+1], arr[j]
+            </pre></div>
+
+            <div class="card"><h3>4. Selection Sort</h3><pre>
+for i in range(n):
+    min_idx = i
+    for j in range(i+1, n):
+        if arr[j] < arr[min_idx]:
+            min_idx = j
+    arr[i], arr[min_idx] = arr[min_idx], arr[i]
+            </pre></div>
+
+            <div class="card"><h3>5. Insertion Sort</h3><pre>
+for i in range(1, n):
+    key = arr[i]
+    j = i - 1
+    while j >= 0 and arr[j] > key:
+        arr[j+1] = arr[j]
+        j -= 1
+    arr[j+1] = key
+            </pre></div>
+
+            <div class="card"><h3>6. Merge Sort</h3><pre>
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr)//2
+        L = arr[:mid]
+        R = arr[mid:]
+        merge_sort(L)
+        merge_sort(R)
+        i = j = k = 0
+        while i < len(L) and j < len(R):
+            if L[i] < R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+        while i < len(L):
+            arr[k] = L[i]
+            i += 1
+            k += 1
+        while j < len(R):
+            arr[k] = R[j]
+            j += 1
+            k += 1
+            </pre></div>
+
+            <div class="card"><h3>7. Quick Sort</h3><pre>
+def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr)//2]
+    left = [x for x in arr if x < pivot]
+    mid = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quicksort(left) + mid + quicksort(right)
+            </pre></div>
+
+            <div class="card"><h3>8. Factorial</h3><pre>
+def factorial(n):
+    result = 1
+    for i in range(1, n+1):
+        result *= i
+    return result
+            </pre></div>
+
+            <div class="card"><h3>9. GCD (Euclid Algorithm)</h3><pre>
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+            </pre></div>
+
+            <div class="card"><h3>10. BFS</h3><pre>
+from collections import deque
+visited = set()
+queue = deque([start])
+while queue:
+    node = queue.popleft()
+    if node not in visited:
+        visited.add(node)
+        for neighbor in graph[node]:
+            queue.append(neighbor)
+            </pre></div>
+        </section>
+
+        <section id="pseudocode">
+            <h2>Pseudocode (10)</h2>
+
+            <div class="card"><h3>1. Linear Search</h3><pre>
+FOR i = 0 to n-1
+    IF arr[i] == target THEN
+        RETURN i
+RETURN -1
+            </pre></div>
+
+            <div class="card"><h3>2. Binary Search</h3><pre>
+WHILE low <= high
+    mid = (low + high) / 2
+    IF arr[mid] == target THEN RETURN mid
+    ELSE IF arr[mid] < target THEN low = mid + 1
+    ELSE high = mid - 1
+RETURN -1
+            </pre></div>
+
+            <div class="card"><h3>3. Bubble Sort</h3><pre>
+FOR i = 0 to n-1
+    FOR j = 0 to n-i-2
+        IF arr[j] > arr[j+1]
+            SWAP(arr[j], arr[j+1])
+            </pre></div>
+
+            <div class="card"><h3>4. Selection Sort</h3><pre>
+FOR i = 0 to n-1
+    minIndex = i
+    FOR j = i+1 to n-1
+        IF arr[j] < arr[minIndex]
+            minIndex = j
+    SWAP(arr[i], arr[minIndex])
+            </pre></div>
+
+            <div class="card"><h3>5. Insertion Sort</h3><pre>
+FOR i = 1 to n-1
+    key = arr[i]
+    j = i - 1
+    WHILE j >= 0 AND arr[j] > key
+        arr[j+1] = arr[j]
+        j = j - 1
+    arr[j+1] = key
+            </pre></div>
+
+            <div class="card"><h3>6. Merge Sort</h3><pre>
+IF length(arr) > 1
+    mid = length(arr)/2
+    LEFT = arr[0..mid]
+    RIGHT = arr[mid..end]
+    MERGE_SORT(LEFT)
+    MERGE_SORT(RIGHT)
+    MERGE(LEFT, RIGHT, arr)
+            </pre></div>
+
+            <div class="card"><h3>7. Quick Sort</h3><pre>
+IF length(arr) <= 1 RETURN arr
+pivot = arr[mid]
+LEFT = elements < pivot
+MID = elements == pivot
+RIGHT = elements > pivot
+RETURN QUICK_SORT(LEFT) + MID + QUICK_SORT(RIGHT)
+            </pre></div>
+
+            <div class="card"><h3>8. Factorial</h3><pre>
+result = 1
+FOR i = 1 to n
+    result = result * i
+RETURN result
+            </pre></div>
+
+            <div class="card"><h3>9. GCD</h3><pre>
+WHILE b != 0
+    temp = b
+    b = a MOD b
+    a = temp
+RETURN a
+            </pre></div>
+
+            <div class="card"><h3>10. BFS</h3><pre>
+CREATE queue
+ADD startNode to queue
+WHILE queue NOT EMPTY
+    node = POP queue
+    IF node NOT visited
+        MARK node visited
+        ADD all neighbors to queue
+            </pre></div>
+        </section>
+
+        <section id="arrays">
+            <h2>Array Implementation</h2>
+            <div class="card"><h3>Definition</h3><p>An array is a fixed-size, indexed collection of elements stored in contiguous memory.</p></div>
+            <div class="card"><h3>Examples</h3><pre>
+arr = [10, 20, 30, 40]
+print(arr[1])  # 20
+print(len(arr))  # 4
+            </pre></div>
+        </section>
+
+        <section id="stacks">
+            <h2>Stacks (Infix, Prefix, Postfix)</h2>
+            <div class="card"><h3>Definition</h3><p>A stack is a LIFO structure used in expression conversion and function calls.</p></div>
+            <div class="card"><h3>Python Example</h3><pre>
+stack = []
+stack.append(5)
+stack.append(9)
+print(stack.pop())  # 9
+            </pre></div>
+            <div class="card"><h3>Expression Example</h3><pre>
+Infix:   A + B * C
+Prefix:  +A*BC
+Postfix: ABC*+
+            </pre></div>
+        </section>
+
+        <section id="queues">
+            <h2>Queue Implementation</h2>
+            <div class="card"><h3>Definition</h3><p>A queue is a FIFO structure used in scheduling, buffering, and BFS.</p></div>
+            <div class="card"><h3>Example</h3><pre>
+from collections import deque
+q = deque([1, 2, 3])
+q.append(4)
+print(q.popleft())  # 1
+            </pre></div>
+        </section>
+
+        <section id="trees">
+            <h2>Binary Tree Traversals</h2>
+            <div class="card"><h3>Definition</h3><p>A tree is a hierarchical structure. Traversals visit nodes in a specific order.</p></div>
+            <div class="card"><h3>Traversal Types</h3><pre>
+Inorder:   Left → Root → Right
+Preorder:  Root → Left → Right
+Postorder: Left → Right → Root
+            </pre></div>
+            <div class="card"><h3>Python Example</h3><pre>
+def preorder(node):
+    if node:
+        print(node.val)
+        preorder(node.left)
+        preorder(node.right)
+            </pre></div>
+        </section>
+    </div>
+
+    <footer>
+        CALICA-SUYAT-ALVAREZ-TRONO-MONTEVERDE-SAMBO-VALDEZ-POSELERO-FUERTES-
+    </footer>
+</body>
+</html>
